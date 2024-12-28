@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="css/vs2015.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+`$f(x)=3x^2-5x+z$` 
+# H1
+_**Lorem ipsum**_ ([/ˌlɔː.rəm ˈɪp.səm/](https://en.wikipedia.org/wiki/Help:IPA/English "Help:IPA/English") [_LOR-əm IP-səm_](https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key "Help:Pronunciation respelling key")) is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+_Lorem ipsum_ is typically a corrupted version of _[De finibus bonorum et malorum](https://en.wikipedia.org/wiki/De_finibus_bonorum_et_malorum "De finibus bonorum et malorum")_, a 1st-century BC text by the [Roman](https://en.wikipedia.org/wiki/Roman_Republic "Roman Republic") statesman and philosopher [Cicero](https://en.wikipedia.org/wiki/Cicero "Cicero"), with words altered, added, and removed to make it nonsensical and improper [Latin](https://en.wikipedia.org/wiki/Latin "Latin"). The first two words themselves are a [truncation](https://en.wikipedia.org/wiki/Clipping_(morphology) "Clipping (morphology)") of _dolorem ipsum_ ("pain itself").
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Versions of the _Lorem ipsum_ text have been used in [typesetting](https://en.wikipedia.org/wiki/Typesetting "Typesetting") at least since the 1960s, when it was popularized by advertisements for [Letraset](https://en.wikipedia.org/wiki/Letraset "Letraset") transfer sheets.1(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-Cibois-1) _Lorem ipsum_ was introduced to the digital world in the mid-1980s, when [Aldus](https://en.wikipedia.org/wiki/Aldus_Corporation "Aldus Corporation") employed it in graphic and word-processing templates for its desktop publishing program [PageMaker](https://en.wikipedia.org/wiki/Adobe_PageMaker "Adobe PageMaker"). Other popular [word processors](https://en.wikipedia.org/wiki/Word_processor_(electronic_device) "Word processor (electronic device)"), including [Pages](https://en.wikipedia.org/wiki/Pages_(word_processor) "Pages (word processor)") and [Microsoft Word](https://en.wikipedia.org/wiki/Microsoft_Word "Microsoft Word"), have since adopted _Lorem ipsum_,2(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-SDop-2) as have many [LaTeX](https://en.wikipedia.org/wiki/LaTeX "LaTeX") packages,3(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-3)4(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-4)5(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-ms-212251-5) web content managers such as [Joomla!](https://en.wikipedia.org/wiki/Joomla! "Joomla!") and [WordPress](https://en.wikipedia.org/wiki/WordPress "WordPress"), and [CSS](https://en.wikipedia.org/wiki/CSS "CSS") libraries such as Semantic UI.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Example text
+
+[[edit](https://en.wikipedia.org/w/index.php?title=Lorem_ipsum&action=edit&section=1 "Edit section: Example text")]
+
+A common form of _Lorem ipsum_ reads:
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Source text
+
+[[edit](https://en.wikipedia.org/w/index.php?title=Lorem_ipsum&action=edit&section=2 "Edit section: Source text")]
+
+The _Lorem ipsum_ text is derived from sections 1.10.32 and 1.10.33 of [Cicero](https://en.wikipedia.org/wiki/Cicero "Cicero")'s _De finibus bonorum et malorum_.6(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-Microsoft-6)7(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-cicero_archive_org-7) The physical source may have been the 1914 [Loeb Classical Library](https://en.wikipedia.org/wiki/Loeb_Classical_Library "Loeb Classical Library") edition of _De finibus_, where the Latin text, presented on the left-hand (even) pages, breaks off on page 34 with "_Neque porro quisquam est qui do-_" and continues on page 36 with "_lorem ipsum ..._", suggesting that the [galley type](https://en.wikipedia.org/wiki/Galley_proof "Galley proof") of that page was mixed up to make the dummy text seen today.1(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-Cibois-1)
+
+The discovery of the text's origin is attributed to Richard McClintock, a Latin scholar at [Hampden–Sydney College](https://en.wikipedia.org/wiki/Hampden%E2%80%93Sydney_College "Hampden–Sydney College"). McClintock connected _Lorem ipsum_ to Cicero's writing sometime before 1982 while searching for instances of the Latin word _[consectetur](https://en.wiktionary.org/wiki/consectetur "wikt:consectetur")_, which was rarely used in classical literature.2(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-SDop-2) McClintock first published his discovery in a 1994 letter to the editor of _Before & After_ magazine,8(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-8) contesting the editor's earlier claim that _Lorem ipsum_ held no meaning.2(https://en.wikipedia.org/wiki/Lorem_ipsum#cite_note-SDop-2)
+
+The relevant section of Cicero as printed in the source is reproduced below with fragments used in _Lorem ipsum_ highlighted. Letters in brackets were added to _Lorem ipsum_ and were not present in the source text:
+
+> [32] Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui do<mark>lorem ipsum</mark>, quia <mark>dolor sit amet consectetur adipisci[ng]</mark> v<mark>elit, sed</mark> quia non numquam <mark>[do] eius mod</mark>i <mark>tempor</mark>a <mark>inci[di]dunt, ut labore et dolore magna</mark>m <mark>aliqua</mark>m quaerat voluptatem. <mark>Ut enim ad minim</mark>a <mark>veniam, quis nostru</mark>m<mark>[d] exercitation</mark>em <mark>ullam co</mark>rporis suscipit <mark>labori</mark>o<mark>s</mark>am, <mark>nisi ut aliquid ex ea commod</mark>i <mark>consequat</mark>ur? <mark>[D]</mark>Q<mark>uis aute</mark>m vel eum <mark>i[r]ure reprehenderit,</mark> qui <mark>in</mark> ea <mark>voluptate velit esse</mark>, quam nihil molestiae <mark>c</mark>onsequatur, vel <mark>illum</mark>, qui <mark>dolore</mark>m <mark>eu</mark>m <mark>fugiat</mark>, quo voluptas <mark>nulla pariatur</mark>?  
+>   
+> [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias <mark>exceptur</mark>i <mark>sint, obcaecat</mark>i <mark>cupiditat</mark>e <mark>non pro</mark>v<mark>ident</mark>, similique <mark>sunt in culpa</mark>, <mark>qui officia deserunt mollit</mark>ia <mark>anim</mark>i, <mark>id est laborum</mark> et dolorum fuga. <mark>Et harum</mark> qui<mark>de</mark>m <mark>re</mark>r<mark>u[d]</mark>um <mark>facilis est e[r]</mark>t <mark>expedit</mark>a <mark>disti</mark>nctio. <mark>Nam liber</mark>o <mark>tempor</mark>e, <mark>cum soluta nobis</mark> est <mark>elige</mark>ndi optio, cumque nihil impedit, quo minus id, <mark>quod maxim</mark>e <mark>placeat facer</mark>e <mark>possim</mark>us, <mark>omnis volupt</mark>as <mark>assumenda est, omnis dolor repellend[a]</mark>us. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+
+<img src="Pasted image 20241228193130.png" alt="" style="object-fit: scale-down">
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+		  RevealChalkboard, 
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+				{ icon: '<i class="fa fa-pen-square"></i>',
+				title: 'Toggle chalkboard (B)',
+				action: 'RevealChalkboard.toggleChalkboard();'
+				},
+				{ icon: '<i class="fa fa-pen"></i>',
+				title: 'Toggle notes canvas (C)',
+				action: 'RevealChalkboard.toggleNotesCanvas();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"normal"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
